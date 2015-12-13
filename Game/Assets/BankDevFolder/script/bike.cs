@@ -17,6 +17,7 @@ public class bike : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+
 		CreateLightCollider();
 		SetColliderSize(wall,lastWallEnd,transform.position);
 
@@ -24,6 +25,7 @@ public class bike : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//DynamicGI.UpdateMaterials(gameObject.renderer);
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
 		if(Input.GetKeyUp(left))

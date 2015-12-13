@@ -52,8 +52,8 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
-    m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 0
+    m_EnvironmentLightingMode: 1
+    m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 3
@@ -106,7 +106,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &41791714
 Transform:
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  wallPrefab: {fileID: 169732, guid: c2715217f5d15814581cef88a2d9c1a9, type: 2}
+  wallPrefab: {fileID: 184038, guid: 9afd122b792bb9f4c9480d24bd6fbd72, type: 2}
   left: 276
   right: 275
   explosion: {fileID: 100004, guid: 275e4d829fb44b14bb9c196b87d47bed, type: 2}
@@ -281,7 +281,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &185963353
 MeshRenderer:
@@ -768,7 +768,7 @@ GameObject:
   m_TagString: Wallcheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1259200465
 MeshRenderer:
@@ -844,7 +844,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!114 &1292016502
 MonoBehaviour:
@@ -858,7 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  wallPrefab: {fileID: 151982, guid: b04a8de88718ec943b2978e3ed4da638, type: 2}
+  wallPrefab: {fileID: 151112, guid: 05154eec5c9a2a84a83592fa272751b1, type: 2}
   left: 97
   right: 100
   explosion: {fileID: 100004, guid: 275e4d829fb44b14bb9c196b87d47bed, type: 2}
@@ -873,7 +873,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: bb0abce4426563b46bf57211f9692ffa, type: 2}
+  - {fileID: 2100000, guid: 2959ec8dc3e81f74cb271407088364ff, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1019,7 +1019,7 @@ GameObject:
   m_TagString: Wallcheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1351616032
 MeshRenderer:
@@ -1091,7 +1091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1357702550
 Light:
   m_ObjectHideFlags: 0
@@ -1102,7 +1102,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: .956862748, b: .839215696, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.25
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1114,7 +1114,7 @@ Light:
     m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_Flare: {fileID: 0}
+  m_Flare: {fileID: 12100000, guid: 09ebe82dbd1113c3d000dc0b8d76c639, type: 2}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1130,7 +1130,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1357702549}
-  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381661, w: .875426114}
+  m_LocalRotation: {x: .419470519, y: -.354160666, z: .0514850914, w: .834244549}
   m_LocalPosition: {x: -.99000001, y: 4.66200018, z: 1.71500003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1152,7 +1152,7 @@ GameObject:
   m_TagString: Wallcheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1664593708
 MeshRenderer:
@@ -1225,7 +1225,7 @@ GameObject:
   m_TagString: Wallcheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1664957762
 MeshRenderer:

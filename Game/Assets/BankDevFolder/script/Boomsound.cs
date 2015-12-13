@@ -14,7 +14,6 @@ public class Boomsound : MonoBehaviour {
 
 	}
 	public void boomsound(){
-		print ("xxx");
 		audioSource.clip = bombsound;
 		audioSource.Play();
 

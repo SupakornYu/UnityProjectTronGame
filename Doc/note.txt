@@ -1,0 +1,9 @@
+important file
+- Assets Folder
+- ProjectSettings
+- .gitignore
+
+using git
+- open edit --> project setting --> Editor
+- change version control mode --> Visible Meta Files
+- Asset Serialization --> Force Text

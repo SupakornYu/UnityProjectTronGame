@@ -3,7 +3,7 @@ using System.Collections;
 
 
 public class bike : MonoBehaviour {
-	public float speed = 5.0f;
+	public float speed = 20.0f;
 	public GameObject wallPrefab;
 	private Collider wall;
 	private Vector3 lastWallEnd;
@@ -11,14 +11,16 @@ public class bike : MonoBehaviour {
 	public KeyCode right;
     public GameObject explosion;
 	public GameObject boomsound;
-
-
+	float timer;
+	float intervalTime;
+	bool State;
 
 
 	// Use this for initialization
 	void Start () {
 
-
+		intervalTime = 1.0f;
+		timer = 0.0f;
 		CreateLightCollider();
 		SetColliderSize(wall,lastWallEnd,transform.position);
 
@@ -26,22 +28,31 @@ public class bike : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		//DynamicGI.UpdateMaterials(gameObject.renderer);
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
+//		timer = timer + Time.deltaTime;
+//		if (timer >= intervalTime) {
+//
+//			CreateLightCollider ();
+//			timer = 0.0f;
+//		}
 
 		if(Input.GetKeyUp(left))
 		{
+
 			this.transform.Rotate(new Vector3(-90,0,0));
 			CreateLightCollider();
 		}
 		if(Input.GetKeyUp(right))
 		{
+
 			this.transform.Rotate(new Vector3(90,0,0));
 			CreateLightCollider();
 		}
+
 		SetColliderSize(wall,lastWallEnd,transform.position);
-	
-	}
+}
 	void CreateLightCollider() {
 		lastWallEnd = transform.position;
 		GameObject g = (GameObject)Instantiate(wallPrefab, transform.position, Quaternion.identity);
@@ -52,10 +63,12 @@ public class bike : MonoBehaviour {
 		
 		col.transform.position = debut + (fin - debut) * 0.5f;   
 		float distance = Vector3.Distance(debut, fin);
-		if (debut.x != fin.x)
-			col.transform.localScale = new Vector3(distance+0.5f , 1.0f, 0.5f);
-		else
-			col.transform.localScale = new Vector3(0.5f	, 1.0f, distance+0.5f );
+
+			if (debut.x != fin.x)
+				col.transform.localScale = new Vector3 (distance + 0.5f, 1.0f, 0.5f);
+			else
+				col.transform.localScale = new Vector3 (0.5f, 1.0f, distance + 0.5f);
+
 	}
 	void OnTriggerEnter(Collider col)
 	{
@@ -64,7 +77,6 @@ public class bike : MonoBehaviour {
 		{
 			//Time.timeScale = 0.3f;
 			//Instantiate(boom, transform.position, Quaternion.identity);
-
 			Instantiate(explosion,transform.position,transform.rotation);
 			boomsound.GetComponent<Boomsound>().boomsound();
 			Destroy(gameObject);
@@ -79,12 +91,13 @@ public class bike : MonoBehaviour {
 			this.transform.Rotate(new Vector3(90,0,0));
 			CreateLightCollider();
 			}else{
-				this.transform.Rotate(new Vector3(-90,0,0));
-				CreateLightCollider();
+			this.transform.Rotate(new Vector3(-90,0,0));
+			CreateLightCollider();
 			}
 
 		}
 	}
+
 
 
 

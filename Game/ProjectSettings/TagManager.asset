@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Wall
   - Wallcheck
+  - Bullet
+  - check
+  - gunplayer1
+  - gunplayer2
+  - Player2
+  - Player1
   layers:
   - Default
   - TransparentFX

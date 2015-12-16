@@ -11,10 +11,20 @@ public class bike : MonoBehaviour {
 	public KeyCode right;
     public GameObject explosion;
 	public GameObject boomsound;
+	public GameObject effect1;
+	public GameObject effect2;
+	GameObject player1;
+	GameObject player2;
+
+
+	public bool p1;
+	public bool p2;
 //	float timer;
 //	float intervalTime;
 	bool State;
 	bool create;
+	float timer;
+	float intervalTime;
 
 
 	// Use this for initialization
@@ -22,6 +32,11 @@ public class bike : MonoBehaviour {
 		create = false;
 		State = false;
 		speed = 8.0f;
+
+		intervalTime = 5.0f;
+		timer = 0.0f;
+		p1 = false;
+		p2 = false;
 //		intervalTime = 1.0f;
 //		timer = 0.0f;
 		CreateLightCollider();
@@ -53,12 +68,45 @@ public class bike : MonoBehaviour {
 		}
 		if(Input.GetKeyUp(right))
 		{
-
 			this.transform.Rotate(new Vector3(90,0,0));
 			CreateLightCollider();
 		}
 
 		SetColliderSize(wall,lastWallEnd,transform.position);
+
+
+
+
+
+		// item change direction
+		//Debug.Log ("p2 :"+ p2);
+		bool newInstance = false;
+		if (p2 == true) {
+			//Debug.Log ("timer :"+ timer);
+			timer = timer + Time.deltaTime;
+			if(timer >= intervalTime){
+				player1 = GameObject.FindGameObjectWithTag("Player1");
+				player1.gameObject.GetComponent<bike>().left = KeyCode.A;
+				player1.gameObject.GetComponent<bike>().right = KeyCode.D;
+				effect1.SetActive(false);
+				p2 = false;
+				//Debug.Log ("done");
+				timer = 0.0f;
+			}
+		}
+		else if (p1 == true) {
+			timer = timer + Time.deltaTime;
+			//Debug.Log ("timers :"+ timer);
+			if(timer >= intervalTime){
+				player2 = GameObject.FindGameObjectWithTag("Player2");
+				player2.gameObject.GetComponent<bike>().left = KeyCode.RightArrow;
+				player2.gameObject.GetComponent<bike>().right = KeyCode.LeftArrow;
+				effect2.SetActive(false);
+				p1 = false;
+				timer = 0.0f;
+			}
+		}
+		// end item change direction
 }
 	void CreateLightCollider() {
 		create = true;

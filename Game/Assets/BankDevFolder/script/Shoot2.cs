@@ -8,10 +8,11 @@ public class Shoot2 : MonoBehaviour
 	int type;
 	float timer;
 	float intervalTime;
-	
+	bool check;
 	
 	void Start(){
-		intervalTime = 5.0f;
+		check = false;
+		intervalTime = 2.0f;
 		timer = 0.0f;
 		type = 1;
 	}
@@ -23,7 +24,12 @@ public class Shoot2 : MonoBehaviour
 		if (type <= 0) {
 			shooting ();
 			timer = timer + Time.deltaTime;
-			if (timer >= intervalTime) {
+			if(check){
+				type = 0;
+				timer = 0.0f;
+				check = false;
+				
+			}if (timer >= intervalTime) {
 				type = 1;
 				timer = 0.0f;
 			}
@@ -43,8 +49,8 @@ public class Shoot2 : MonoBehaviour
 	//	}
 	
 	public void Changegun(){
-		
 		type = 0;
+		check = true;
 	}
 	
 	public void shooting(){
@@ -56,7 +62,7 @@ public class Shoot2 : MonoBehaviour
 			gunBullet.GetComponent<Rigidbody>().velocity = transform.forward*-speed;
 		}
 	}
-	
+
 	
 	
 }

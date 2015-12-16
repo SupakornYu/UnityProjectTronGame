@@ -14,10 +14,12 @@ public class bike : MonoBehaviour {
 //	float timer;
 //	float intervalTime;
 	bool State;
+	bool create;
 
 
 	// Use this for initialization
 	void Start () {
+		create = false;
 		State = false;
 		speed = 8.0f;
 //		intervalTime = 1.0f;
@@ -45,6 +47,7 @@ public class bike : MonoBehaviour {
 
 		if(Input.GetKeyUp(left))
 		{
+
 			this.transform.Rotate(new Vector3(-90,0,0));
 			CreateLightCollider();
 		}
@@ -58,6 +61,7 @@ public class bike : MonoBehaviour {
 		SetColliderSize(wall,lastWallEnd,transform.position);
 }
 	void CreateLightCollider() {
+		create = true;
 		lastWallEnd = transform.position;
 		GameObject g = (GameObject)Instantiate(wallPrefab, transform.position, Quaternion.identity);
 		//g.name = "Wall";

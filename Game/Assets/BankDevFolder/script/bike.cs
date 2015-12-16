@@ -3,7 +3,7 @@ using System.Collections;
 
 
 public class bike : MonoBehaviour {
-	public float speed = 20.0f;
+	public float speed;
 	public GameObject wallPrefab;
 	private Collider wall;
 	private Vector3 lastWallEnd;
@@ -11,16 +11,17 @@ public class bike : MonoBehaviour {
 	public KeyCode right;
     public GameObject explosion;
 	public GameObject boomsound;
-	float timer;
-	float intervalTime;
+//	float timer;
+//	float intervalTime;
 	bool State;
 
 
 	// Use this for initialization
 	void Start () {
-
-		intervalTime = 1.0f;
-		timer = 0.0f;
+		State = false;
+		speed = 8.0f;
+//		intervalTime = 1.0f;
+//		timer = 0.0f;
 		CreateLightCollider();
 		SetColliderSize(wall,lastWallEnd,transform.position);
 
@@ -37,10 +38,13 @@ public class bike : MonoBehaviour {
 //			CreateLightCollider ();
 //			timer = 0.0f;
 //		}
+		if (State) {
+			CreateLightCollider();
+			State = false;
+		}
 
 		if(Input.GetKeyUp(left))
 		{
-
 			this.transform.Rotate(new Vector3(-90,0,0));
 			CreateLightCollider();
 		}
@@ -73,7 +77,7 @@ public class bike : MonoBehaviour {
 	void OnTriggerEnter(Collider col)
 	{
 
-		if(col.gameObject.CompareTag("Wall"))
+		if(col.gameObject.CompareTag("Wall1") || col.gameObject.CompareTag("Wall2") )
 		{
 			//Time.timeScale = 0.3f;
 			//Instantiate(boom, transform.position, Quaternion.identity);
@@ -89,14 +93,22 @@ public class bike : MonoBehaviour {
 
 
 			this.transform.Rotate(new Vector3(90,0,0));
+//				Debug.Log("right");
 			CreateLightCollider();
 			}else{
+//				Debug.Log("left");
 			this.transform.Rotate(new Vector3(-90,0,0));
 			CreateLightCollider();
 			}
 
 		}
 	}
+	public void check(){
+
+		State = true;
+
+	}
+
 
 
 

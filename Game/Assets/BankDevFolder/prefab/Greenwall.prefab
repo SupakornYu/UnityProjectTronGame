@@ -11,9 +11,10 @@ GameObject:
   - 33: {fileID: 3320528}
   - 65: {fileID: 6505006}
   - 23: {fileID: 2394296}
+  - 114: {fileID: 11450224}
   m_Layer: 0
   m_Name: Greenwall
-  m_TagString: Wall
+  m_TagString: Wall2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -73,6 +74,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11450224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055979e2b90c773468fef1b3d346520e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallPaticiple: {fileID: 157044, guid: a401136c9d5ccad46aa0b1774b0d3932, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -82,7 +95,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_TagString
-      value: Wall
+      value: Wall2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_StaticEditorFlags
@@ -96,6 +109,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lifetime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: WallPaticiple
+      value: 
+      objectReference: {fileID: 157044, guid: a401136c9d5ccad46aa0b1774b0d3932, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 184038}

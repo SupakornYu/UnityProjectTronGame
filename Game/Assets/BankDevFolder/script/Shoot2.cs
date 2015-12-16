@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shoot1 : MonoBehaviour
+public class Shoot2 : MonoBehaviour
 {
 	public GameObject bullet;
 	public float speed;
 	int type;
 	float timer;
 	float intervalTime;
-
-
+	
+	
 	void Start(){
 		intervalTime = 5.0f;
 		timer = 0.0f;
@@ -19,32 +19,31 @@ public class Shoot1 : MonoBehaviour
 	void Update ()
 	{
 		
-
+		
 		if (type <= 0) {
 			shooting ();
 			timer = timer + Time.deltaTime;
 			if (timer >= intervalTime) {
-		
 				type = 1;
 				timer = 0.0f;
 			}
 		}
-//		StartCoroutine("SpawnBall");
+		//		StartCoroutine("SpawnBall");
 		
 	}
 	
-//	IEnumerator SpawnBall(){
-//		
-//		if (type <= 0) {
-//
-//			yield return new WaitForSeconds(5);
-//
-//			type = 1;
-//		}
-//	}
+	//	IEnumerator SpawnBall(){
+	//		
+	//		if (type <= 0) {
+	//
+	//			yield return new WaitForSeconds(5);
+	//
+	//			type = 1;
+	//		}
+	//	}
 	
 	public void Changegun(){
-
+		
 		type = 0;
 	}
 	
@@ -52,12 +51,12 @@ public class Shoot1 : MonoBehaviour
 		
 		if (type > 0 ) {
 			
-		} else if (type <= 0 && Input.GetKey(KeyCode.W)) {
+		} else if (type <= 0 && Input.GetKey(KeyCode.UpArrow)) {
 			GameObject gunBullet = (GameObject)Instantiate(bullet,transform.position,transform.rotation);
 			gunBullet.GetComponent<Rigidbody>().velocity = transform.forward*-speed;
 		}
 	}
-
-
+	
+	
 	
 }

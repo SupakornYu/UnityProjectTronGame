@@ -26,7 +26,7 @@ public class checkgun : MonoBehaviour {
 			gun1.gameObject.GetComponent<Shoot1>().Changegun();
 		}else if(obj.gameObject.CompareTag("Player2")){
 			Destroy(gameObject);
-			gun2.gameObject.GetComponent<Shoot1>().Changegun();
+			gun2.gameObject.GetComponent<Shoot2>().Changegun();
 		}
 	}
 }

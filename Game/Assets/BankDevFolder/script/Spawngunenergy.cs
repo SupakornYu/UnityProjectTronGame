@@ -17,10 +17,8 @@ public class Spawngunenergy : MonoBehaviour {
 			
 			float offsetX = Random.Range(-25.0f,25.0f);
 			float offsetZ = Random.Range(-25.0f,25.0f);
-			Vector3 spawnPosition = new
-				Vector3(transform.position.x+offsetX,transform.position.y,transform.position.z+offsetZ);
+			Vector3 spawnPosition = new Vector3(transform.position.x+offsetX,transform.position.y,transform.position.z+offsetZ);
 			Instantiate(gunenegy,spawnPosition,Quaternion.identity);
-			
 			yield return new WaitForSeconds(delayTime);
 		}
 	}

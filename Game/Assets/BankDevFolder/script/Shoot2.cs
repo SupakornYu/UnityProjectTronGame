@@ -9,6 +9,7 @@ public class Shoot2 : MonoBehaviour
 	float timer;
 	float intervalTime;
 	bool check;
+	public GameObject shootsound;
 	
 	void Start(){
 		check = false;
@@ -60,6 +61,7 @@ public class Shoot2 : MonoBehaviour
 		} else if (type <= 0 && Input.GetKey(KeyCode.UpArrow)) {
 			GameObject gunBullet = (GameObject)Instantiate(bullet,transform.position,transform.rotation);
 			gunBullet.GetComponent<Rigidbody>().velocity = transform.forward*-speed;
+			shootsound.GetComponent<shootsound>().shoot();
 		}
 	}
 

@@ -18,6 +18,9 @@ TagManager:
   - explosion
   - speedsliderp1
   - New Tag
+  - impact
+  - ChangeDirectionEffect1
+  - ChangeDirectionEffect2
   layers:
   - Default
   - TransparentFX

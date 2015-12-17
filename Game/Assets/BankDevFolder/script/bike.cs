@@ -11,8 +11,12 @@ public class bike : MonoBehaviour {
 	public KeyCode right;
     public GameObject explosion;
 	public GameObject boomsound;
+	public GameObject impactsound;
 	public GameObject effect1;
 	public GameObject effect2;
+
+	public GameObject effect1_slowItem;
+	public GameObject effect2_slowItem;
 	GameObject player1;
 	GameObject player2;
 	public GameObject pointChangeDirectionItem;
@@ -42,7 +46,7 @@ public class bike : MonoBehaviour {
 		intervalTime = 6.0f;
 		timer = intervalTime;
 
-		intervalTime_speed = 2.0f;
+		intervalTime_speed = 5.0f;
 		timer_speed = intervalTime_speed;
 
 		p1 = false;
@@ -86,20 +90,23 @@ public class bike : MonoBehaviour {
 
 
 		//item slow
-		//Debug.Log("speedCheck : " + speedCheck2);
+		Debug.Log("speed p1 : " + GameObject.FindGameObjectWithTag("Player1").GetComponent<bike>().speed);
+		Debug.Log("speed p2 : " + GameObject.FindGameObjectWithTag("Player2").GetComponent<bike>().speed);
 		if(speedCheck2 == true){
 			//Debug.Log("timer : " + timer_speed);
 			timer_speed = timer_speed - Time.deltaTime;
 			if(timer_speed <= 0.0f){
 				GameObject.FindGameObjectWithTag("Player1").GetComponent<bike>().speed += 5.0f;
+				effect1_slowItem.SetActive(false);
 				speedCheck2 = false;
 				timer_speed = intervalTime_speed;
 			}
 		}else if(speedCheck1 == true){
-			Debug.Log("timer : " + timer_speed);
+			//Debug.Log("timer : " + timer_speed);
 			timer_speed = timer_speed - Time.deltaTime;
 			if(timer_speed <= 0.0f){
 				GameObject.FindGameObjectWithTag("Player2").GetComponent<bike>().speed += 5.0f;
+				effect2_slowItem.SetActive(false);
 				speedCheck1 = false;
 				timer_speed = intervalTime_speed;
 			}
@@ -112,7 +119,7 @@ public class bike : MonoBehaviour {
 		if (p2 == true) {
 			timer = timer - Time.deltaTime;
 			if(timer <= 0.0f){
-				//Debug.Log("player2 take");
+				Debug.Log("player2 take");
 				player1 = GameObject.FindGameObjectWithTag("Player1");
 				player1.gameObject.GetComponent<bike>().left = KeyCode.A;
 				player1.gameObject.GetComponent<bike>().right = KeyCode.D;
@@ -120,21 +127,20 @@ public class bike : MonoBehaviour {
 				p2 = false;
 				pointChangeDirectionItem.gameObject.GetComponent<spawnChangeDirectionItem>().bottleCheck = false;
 				//Debug.Log ("done");
-				timer = 0.0f;
+				timer = intervalTime;
 			}
 		}
 		else if (p1 == true) {
 			timer = timer - Time.deltaTime;
-			//Debug.Log ("timers :"+ timer);
 			if(timer <= 0.0f){
-				//Debug.Log("player1 take");
+				Debug.Log("player1 take");
 				player2 = GameObject.FindGameObjectWithTag("Player2");
 				player2.gameObject.GetComponent<bike>().left = KeyCode.LeftArrow;
 				player2.gameObject.GetComponent<bike>().right = KeyCode.RightArrow;
 				effect2.SetActive(false);
 				p1 = false;
 				pointChangeDirectionItem.gameObject.GetComponent<spawnChangeDirectionItem>().bottleCheck = false;
-				timer = 0.0f;
+				timer = intervalTime;
 			}
 		}
 		// end item change direction
@@ -152,9 +158,9 @@ public class bike : MonoBehaviour {
 		float distance = Vector3.Distance(debut, fin);
 
 			if (debut.x != fin.x)
-				col.transform.localScale = new Vector3 (distance + 0.5f, 1.0f, 0.5f);
+				col.transform.localScale = new Vector3 (distance +0.175f, 1.0f, 0.1f);
 			else
-				col.transform.localScale = new Vector3 (0.5f, 1.0f, distance + 0.5f);
+				col.transform.localScale = new Vector3 (0.1f, 1.0f, distance +0.175f);
 
 	}
 	void OnTriggerEnter(Collider col)
@@ -170,25 +176,20 @@ public class bike : MonoBehaviour {
 
 		}else if (col.gameObject.CompareTag("Wallcheck"))
 		{
-			int x = Random.Range(1,3);
-
-			if(x==1){
-
-
-			this.transform.Rotate(new Vector3(90,0,0));
-//				Debug.Log("right");
-			CreateLightCollider();
-			}else{
-//				Debug.Log("left");
-			this.transform.Rotate(new Vector3(-90,0,0));
-			CreateLightCollider();
-			}
+			Instantiate(explosion,transform.position,transform.rotation);
+			boomsound.GetComponent<Boomsound>().boomsound();
+			Destroy(gameObject);
 
 		}
 	}
 	public void check(){
 
 		State = true;
+
+	}
+	public void impact(){
+
+		impactsound.GetComponent<impactsound> ().impact ();
 
 	}
 

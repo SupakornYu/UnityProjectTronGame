@@ -13,6 +13,11 @@ TagManager:
   - Player2
   - Player1
   - Wall2
+  - shield
+  - SF_Door
+  - explosion
+  - speedsliderp1
+  - New Tag
   - impact
   - ChangeDirectionEffect1
   - ChangeDirectionEffect2

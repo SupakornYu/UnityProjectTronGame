@@ -4,10 +4,10 @@ using System.Collections;
 public class bottle : MonoBehaviour {
 
 	public GameObject axisPoint;
-	public GameObject player1;
-	public GameObject player2;
-	public GameObject effect1;
-	public GameObject effect2;
+	GameObject player1;
+	GameObject player2;
+	//public GameObject effect1;
+	//public GameObject effect2;
 
 
 
@@ -15,6 +15,10 @@ public class bottle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		speed = 180.0f;
+		player1 = GameObject.FindGameObjectWithTag ("Player1");
+		player2 = GameObject.FindGameObjectWithTag ("Player2");
+		//effect1 = GameObject.FindGameObjectWithTag ("ChangeDirectionEffect1");
+		//effect2 = GameObject.FindGameObjectWithTag ("ChangeDirectionEffect2");
 
 	}
 	
@@ -30,8 +34,10 @@ public class bottle : MonoBehaviour {
 			player1.gameObject.GetComponent<bike>().left = KeyCode.D;
 			player1.gameObject.GetComponent<bike>().right = KeyCode.A;
 			player1.gameObject.GetComponent<bike>().p2 = true;
-			effect1.SetActive(true);
+			player1.gameObject.GetComponent<bike>().effect1.SetActive(true);
+			//effect1.SetActive(true);
 			Destroy(gameObject);
+			Debug.Log ("Player2");
 			//effect1.SetActive(false);
 			//Debug.Log ("p2 :"+ p2);
 
@@ -41,8 +47,10 @@ public class bottle : MonoBehaviour {
 			player2.gameObject.GetComponent<bike>().left = KeyCode.RightArrow;
 			player2.gameObject.GetComponent<bike>().right = KeyCode.LeftArrow;
 			player2.gameObject.GetComponent<bike>().p1 = true;
-			effect2.SetActive(true);
+			player1.gameObject.GetComponent<bike>().effect2.SetActive(true);
+			//effect2.SetActive(true);
 			Destroy(gameObject);
+			Debug.Log ("Player1");
 
 		}
 	}

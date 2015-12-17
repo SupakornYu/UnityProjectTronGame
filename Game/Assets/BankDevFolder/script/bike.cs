@@ -174,13 +174,15 @@ public class bike : MonoBehaviour {
 			//Instantiate(boom, transform.position, Quaternion.identity);
 			Instantiate(explosion,transform.position,transform.rotation);
 			boomsound.GetComponent<Boomsound>().boomsound();
-			Destroy(gameObject);
+			//Destroy(gameObject);
+			decreaseHealth(1,col);
 
 		}else if (col.gameObject.CompareTag("Wallcheck"))
 		{
 			Instantiate(explosion,transform.position,transform.rotation);
 			boomsound.GetComponent<Boomsound>().boomsound();
-			Destroy(gameObject);
+			//Destroy(gameObject);
+			playerDie();
 
 		}
 	}
@@ -208,21 +210,23 @@ public class bike : MonoBehaviour {
 
 	void decreaseHealth(int amount,Collider obj){
 		if(gameObject.tag=="Player1"){
+
 			GameSetting.Player1Health -= amount;
+			Debug.Log("player1 :"+GameSetting.Player1Health);
 			if(GameSetting.Player1Health<=0){
-				Destroy(gameObject);
-				playerDie("Player1");
+				playerDie();
 			}else{
-				Destroy(obj);
+				Destroy(obj.gameObject);
 			}
 
 		}else if(gameObject.tag=="Player2"){
+
 			GameSetting.Player2Health -= amount;
+			Debug.Log("player2 :"+GameSetting.Player2Health);
 			if(GameSetting.Player2Health<=0){
-				Destroy(gameObject);
-				playerDie("Player2");
+				playerDie();
 			}else{
-				Destroy(obj);
+				Destroy(obj.gameObject);
 			}
 		}
 	}
@@ -237,9 +241,16 @@ public class bike : MonoBehaviour {
 
 	}
 
-	void playerDie(string name){
+	void playerDie(){
+		Destroy(gameObject);
+		if(gameObject.tag=="Player1"){
+			GameSetting.Player1Health = 0;
+			Debug.Log ("Player1 has passed away : " + GameSetting.Player1Health);
+		}else if(gameObject.tag=="Player2"){
+			GameSetting.Player2Health = 0;
+			Debug.Log ("Player2 has passed away : " + GameSetting.Player2Health);
+		}
 
-		Debug.Log ("Player : "+name+" has passed away");
 		//Application.LoadLevel ("GameOverScence");
 	}
 

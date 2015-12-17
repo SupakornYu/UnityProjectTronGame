@@ -44,7 +44,7 @@ public class ShowSliderValue : MonoBehaviour
 				GameObject.FindGameObjectWithTag ("speedsliderp1").GetComponent<Slider> ().maxValue = 2.0f;
 
 			}
-			GameSetting.Player1Health = temp;
+			GameSetting.Player1Health += temp;
 
 		}
 
@@ -86,7 +86,7 @@ public class ShowSliderValue : MonoBehaviour
 				GameObject.FindGameObjectWithTag ("speedsliderp1").GetComponent<Slider> ().maxValue = 2.0f;
 
 			}
-			GameSetting.Player2Health = temp;
+			GameSetting.Player2Health += temp;
 
 		}
 

@@ -15,8 +15,10 @@ public class bike : MonoBehaviour {
 	public GameObject effect2;
 	GameObject player1;
 	GameObject player2;
+	public GameObject pointChangeDirectionItem;
 
-
+	public bool speedCheck2;
+	public bool speedCheck1;
 	public bool p1;
 	public bool p2;
 //	float timer;
@@ -26,15 +28,23 @@ public class bike : MonoBehaviour {
 	float timer;
 	float intervalTime;
 
+	float timer_speed;
+	float intervalTime_speed;
+
 
 	// Use this for initialization
 	void Start () {
+		speedCheck2 = false;
+		speedCheck1 = false;
 		create = false;
 		State = false;
 		speed = 8.0f;
+		intervalTime = 6.0f;
+		timer = intervalTime;
 
-		intervalTime = 5.0f;
-		timer = 0.0f;
+		intervalTime_speed = 2.0f;
+		timer_speed = intervalTime_speed;
+
 		p1 = false;
 		p2 = false;
 //		intervalTime = 1.0f;
@@ -75,34 +85,55 @@ public class bike : MonoBehaviour {
 		SetColliderSize(wall,lastWallEnd,transform.position);
 
 
-
+		//item slow
+		//Debug.Log("speedCheck : " + speedCheck2);
+		if(speedCheck2 == true){
+			//Debug.Log("timer : " + timer_speed);
+			timer_speed = timer_speed - Time.deltaTime;
+			if(timer_speed <= 0.0f){
+				GameObject.FindGameObjectWithTag("Player1").GetComponent<bike>().speed += 5.0f;
+				speedCheck2 = false;
+				timer_speed = intervalTime_speed;
+			}
+		}else if(speedCheck1 == true){
+			Debug.Log("timer : " + timer_speed);
+			timer_speed = timer_speed - Time.deltaTime;
+			if(timer_speed <= 0.0f){
+				GameObject.FindGameObjectWithTag("Player2").GetComponent<bike>().speed += 5.0f;
+				speedCheck1 = false;
+				timer_speed = intervalTime_speed;
+			}
+		}
+		//end slow item
 
 
 		// item change direction
-		//Debug.Log ("p2 :"+ p2);
-		bool newInstance = false;
+
 		if (p2 == true) {
-			//Debug.Log ("timer :"+ timer);
-			timer = timer + Time.deltaTime;
-			if(timer >= intervalTime){
+			timer = timer - Time.deltaTime;
+			if(timer <= 0.0f){
+				//Debug.Log("player2 take");
 				player1 = GameObject.FindGameObjectWithTag("Player1");
 				player1.gameObject.GetComponent<bike>().left = KeyCode.A;
 				player1.gameObject.GetComponent<bike>().right = KeyCode.D;
 				effect1.SetActive(false);
 				p2 = false;
+				pointChangeDirectionItem.gameObject.GetComponent<spawnChangeDirectionItem>().bottleCheck = false;
 				//Debug.Log ("done");
 				timer = 0.0f;
 			}
 		}
 		else if (p1 == true) {
-			timer = timer + Time.deltaTime;
+			timer = timer - Time.deltaTime;
 			//Debug.Log ("timers :"+ timer);
-			if(timer >= intervalTime){
+			if(timer <= 0.0f){
+				//Debug.Log("player1 take");
 				player2 = GameObject.FindGameObjectWithTag("Player2");
-				player2.gameObject.GetComponent<bike>().left = KeyCode.RightArrow;
-				player2.gameObject.GetComponent<bike>().right = KeyCode.LeftArrow;
+				player2.gameObject.GetComponent<bike>().left = KeyCode.LeftArrow;
+				player2.gameObject.GetComponent<bike>().right = KeyCode.RightArrow;
 				effect2.SetActive(false);
 				p1 = false;
+				pointChangeDirectionItem.gameObject.GetComponent<spawnChangeDirectionItem>().bottleCheck = false;
 				timer = 0.0f;
 			}
 		}

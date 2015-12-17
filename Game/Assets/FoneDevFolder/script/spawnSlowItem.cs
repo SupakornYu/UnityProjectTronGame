@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class spawnChangeDirectionItem : MonoBehaviour {
-
+public class spawnSlowItem : MonoBehaviour {
+	
 	public GameObject obj;
 	public GameObject ppp;
 	
@@ -12,7 +12,8 @@ public class spawnChangeDirectionItem : MonoBehaviour {
 	
 	void Start () {
 		delayTime = 5.0f;
-		bottleCheck = false;
+		StartCoroutine("spwanChangeDirectItem",delayTime);
+		//bottleCheck = false;
 		//StartCoroutine("spwanChangeDirectItem",delayTime);
 	}
 	IEnumerator spwanChangeDirectItem(float delayTime){
@@ -27,7 +28,7 @@ public class spawnChangeDirectionItem : MonoBehaviour {
 		}
 	}
 	void Update () {
-		StartCoroutine("spwanChangeDirectItem",delayTime);
+
 	}
 	
 }

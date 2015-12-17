@@ -3,15 +3,12 @@ using System.Collections;
 
 public class ezCameraShake : MonoBehaviour {
 	//GameObject cam;
-	float a;
-	float b;
-	float c;
 	bool FlagTog;
 	float intervalTime;
 	// Use this for initialization
 	void Start () {
 
-		FlagTog = true;
+		FlagTog = false;
 		intervalTime = 0.5f;
 		StartCoroutine ("ToggleFlag");
 

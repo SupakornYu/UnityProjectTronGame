@@ -15,5 +15,9 @@ EditorBuildSettings:
     path: Assets/FlukeDevFolder/ui/Scenes/Player1.unity
   - enabled: 1
     path: Assets/FlukeDevFolder/ui/Scenes/Player2.unity
+  - enabled: 0
+    path: Assets/FlukeDevFolder/ui/Scenes/startscene.unity
+  - enabled: 1
+    path: Assets/BankDevFolder/scene/scene1.unity
   - enabled: 1
     path: Assets/FlukeDevFolder/ui/Scenes/Credit.unity

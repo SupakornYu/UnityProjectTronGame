@@ -13,8 +13,15 @@ public class buttonNext1 : MonoBehaviour{
 		
 	
 	}
-	public void changescene(){
+	public void changescene1(){
 		Application.LoadLevel ("Player2");
+
+
+
+	}
+	public void changescene2(){
+		Application.LoadLevel ("scene1");
+
 
 	}
 

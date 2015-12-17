@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: MKDemoMat9View1
+  m_Name: greenwallmat
   m_Shader: {fileID: 4800000, guid: da326b314981d034abd06a79a2994084, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
@@ -145,7 +145,7 @@ Material:
       data:
         first:
           name: _MKGlowTexStrength
-        second: 4.5999999
+        second: 4.69999981
       data:
         first:
           name: _MKGlowOffSet
@@ -154,20 +154,20 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 1, g: 0, b: 0, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 0}
+        second: {r: 0, g: 1, b: .0482797772, a: 0}
       data:
         first:
           name: _RimColor
-        second: {r: 0, g: 1, b: .0470588282, a: 1}
+        second: {r: .0758621693, g: 1, b: 0, a: 1}
       data:
         first:
           name: _MKGlowColor
-        second: {r: 0, g: 1, b: .0482757092, a: 1}
+        second: {r: .199999928, g: 1, b: 0, a: 1}
       data:
         first:
           name: _MKGlowTexColor
-        second: {r: .0758665279, g: 1, b: 0, a: 0}
+        second: {r: .117241383, g: 1, b: 0, a: .115999997}

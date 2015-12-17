@@ -56,6 +56,8 @@ public class bike : MonoBehaviour {
 		CreateLightCollider();
 		SetColliderSize(wall,lastWallEnd,transform.position);
 
+		initSetupSpeed ();
+
 	}
 	
 	// Update is called once per frame
@@ -172,13 +174,15 @@ public class bike : MonoBehaviour {
 			//Instantiate(boom, transform.position, Quaternion.identity);
 			Instantiate(explosion,transform.position,transform.rotation);
 			boomsound.GetComponent<Boomsound>().boomsound();
-			Destroy(gameObject);
+			//Destroy(gameObject);
+			decreaseHealth(1,col);
 
 		}else if (col.gameObject.CompareTag("Wallcheck"))
 		{
 			Instantiate(explosion,transform.position,transform.rotation);
 			boomsound.GetComponent<Boomsound>().boomsound();
-			Destroy(gameObject);
+			//Destroy(gameObject);
+			playerDie();
 
 		}
 	}
@@ -202,6 +206,52 @@ public class bike : MonoBehaviour {
 		transform.Translate (tran);
 		CreateLightCollider ();
 		
+	}
+
+	void decreaseHealth(int amount,Collider obj){
+		if(gameObject.tag=="Player1"){
+
+			GameSetting.Player1Health -= amount;
+			Debug.Log("player1 :"+GameSetting.Player1Health);
+			if(GameSetting.Player1Health<=0){
+				playerDie();
+			}else{
+				Destroy(obj.gameObject);
+			}
+
+		}else if(gameObject.tag=="Player2"){
+
+			GameSetting.Player2Health -= amount;
+			Debug.Log("player2 :"+GameSetting.Player2Health);
+			if(GameSetting.Player2Health<=0){
+				playerDie();
+			}else{
+				Destroy(obj.gameObject);
+			}
+		}
+	}
+
+	void initSetupSpeed(){
+
+		if(gameObject.tag=="Player1"){
+			speed = GameSetting.Player1Speed ;
+		}else if(gameObject.tag=="Player2"){
+			speed = GameSetting.Player2Speed ;
+		}
+
+	}
+
+	void playerDie(){
+		Destroy(gameObject);
+		if(gameObject.tag=="Player1"){
+			GameSetting.Player1Health = 0;
+			Debug.Log ("Player1 has passed away : " + GameSetting.Player1Health);
+		}else if(gameObject.tag=="Player2"){
+			GameSetting.Player2Health = 0;
+			Debug.Log ("Player2 has passed away : " + GameSetting.Player2Health);
+		}
+
+		//Application.LoadLevel ("GameOverScence");
 	}
 
 

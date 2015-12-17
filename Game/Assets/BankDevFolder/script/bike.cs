@@ -53,6 +53,8 @@ public class bike : MonoBehaviour {
 		CreateLightCollider();
 		SetColliderSize(wall,lastWallEnd,transform.position);
 
+		initSetupSpeed ();
+
 	}
 	
 	// Update is called once per frame
@@ -197,6 +199,43 @@ public class bike : MonoBehaviour {
 		transform.Translate (tran);
 		CreateLightCollider ();
 		
+	}
+
+	void decreaseHealth(int amount,Collider obj){
+		if(gameObject.tag=="Player1"){
+			GameSetting.Player1Health -= amount;
+			if(GameSetting.Player1Health<=0){
+				Destroy(gameObject);
+				playerDie("Player1");
+			}else{
+				Destroy(obj);
+			}
+
+		}else if(gameObject.tag=="Player2"){
+			GameSetting.Player2Health -= amount;
+			if(GameSetting.Player2Health<=0){
+				Destroy(gameObject);
+				playerDie("Player2");
+			}else{
+				Destroy(obj);
+			}
+		}
+	}
+
+	void initSetupSpeed(){
+
+		if(gameObject.tag=="Player1"){
+			speed = GameSetting.Player1Speed ;
+		}else if(gameObject.tag=="Player2"){
+			speed = GameSetting.Player2Speed ;
+		}
+
+	}
+
+	void playerDie(string name){
+
+		Debug.Log ("Player : "+name+" has passed away");
+		//Application.LoadLevel ("GameOverScence");
 	}
 
 

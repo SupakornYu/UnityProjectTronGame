@@ -28,7 +28,7 @@ Material:
         second:
           m_Texture: {fileID: 2800000, guid: 30db500b226a8014e82f9e1e39a78e15, type: 3}
           m_Scale: {x: 1, y: 1}
-          m_Offset: {x: -3.8903162, y: 0}
+          m_Offset: {x: -1.37596285, y: 0}
       data:
         first:
           name: _MainBump
@@ -47,7 +47,7 @@ Material:
       data:
         first:
           name: _Shininess
-        second: 0.2
+        second: .200000003
       data:
         first:
           name: _Stencil
@@ -74,12 +74,12 @@ Material:
         second: 15
       data:
         first:
-          name: _UseUIAlphaClip
-        second: 0
+          name: _Strength
+        second: .160714284
       data:
         first:
-          name: _Strength
-        second: 0.16071428
+          name: _UseUIAlphaClip
+        second: 0
     m_Colors:
       data:
         first:
@@ -88,4 +88,4 @@ Material:
       data:
         first:
           name: _Specular
-        second: {r: 1, g: 1, b: 1, a: 0.24705882}
+        second: {r: 1, g: 1, b: 1, a: .247058824}

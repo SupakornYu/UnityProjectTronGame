@@ -13,6 +13,9 @@ public class GameSettingTest : MonoBehaviour {
 	IEnumerator SpawnBall(float intervalTime){
 		while(true){
 			Debug.Log (GameSetting.Player1Health);
+
+			GameSetting.Player1Health = 10;
+
 			GameSetting.Player1Health+=1;
 			yield return new WaitForSeconds(intervalTime);
 		}

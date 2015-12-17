@@ -11,6 +11,7 @@ public class bike : MonoBehaviour {
 	public KeyCode right;
     public GameObject explosion;
 	public GameObject boomsound;
+	public GameObject impactsound;
 	public GameObject effect1;
 	public GameObject effect2;
 	GameObject player1;
@@ -152,9 +153,9 @@ public class bike : MonoBehaviour {
 		float distance = Vector3.Distance(debut, fin);
 
 			if (debut.x != fin.x)
-				col.transform.localScale = new Vector3 (distance + 0.5f, 1.0f, 0.5f);
+				col.transform.localScale = new Vector3 (distance +0.175f, 1.0f, 0.1f);
 			else
-				col.transform.localScale = new Vector3 (0.5f, 1.0f, distance + 0.5f);
+				col.transform.localScale = new Vector3 (0.1f, 1.0f, distance +0.175f);
 
 	}
 	void OnTriggerEnter(Collider col)
@@ -170,25 +171,20 @@ public class bike : MonoBehaviour {
 
 		}else if (col.gameObject.CompareTag("Wallcheck"))
 		{
-			int x = Random.Range(1,3);
-
-			if(x==1){
-
-
-			this.transform.Rotate(new Vector3(90,0,0));
-//				Debug.Log("right");
-			CreateLightCollider();
-			}else{
-//				Debug.Log("left");
-			this.transform.Rotate(new Vector3(-90,0,0));
-			CreateLightCollider();
-			}
+			Instantiate(explosion,transform.position,transform.rotation);
+			boomsound.GetComponent<Boomsound>().boomsound();
+			Destroy(gameObject);
 
 		}
 	}
 	public void check(){
 
 		State = true;
+
+	}
+	public void impact(){
+
+		impactsound.GetComponent<impactsound> ().impact ();
 
 	}
 

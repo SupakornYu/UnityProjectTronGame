@@ -16,6 +16,9 @@ TagManager:
   - impact
   - ChangeDirectionEffect1
   - ChangeDirectionEffect2
+  - explosion
+  - shield
+  - acc1
   layers:
   - Default
   - TransparentFX

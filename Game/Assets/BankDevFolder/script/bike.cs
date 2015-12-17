@@ -90,8 +90,8 @@ public class bike : MonoBehaviour {
 
 
 		//item slow
-		Debug.Log("speed p1 : " + GameObject.FindGameObjectWithTag("Player1").GetComponent<bike>().speed);
-		Debug.Log("speed p2 : " + GameObject.FindGameObjectWithTag("Player2").GetComponent<bike>().speed);
+		//Debug.Log("speed p1 : " + GameObject.FindGameObjectWithTag("Player1").GetComponent<bike>().speed);
+		//Debug.Log("speed p2 : " + GameObject.FindGameObjectWithTag("Player2").GetComponent<bike>().speed);
 		if(speedCheck2 == true){
 			//Debug.Log("timer : " + timer_speed);
 			timer_speed = timer_speed - Time.deltaTime;

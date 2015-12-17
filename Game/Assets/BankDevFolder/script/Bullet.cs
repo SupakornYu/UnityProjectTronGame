@@ -29,15 +29,18 @@ public class Bullet : MonoBehaviour {
 		{
 			Destroy(obj.gameObject);
 			Destroy(gameObject);
-			player1.GetComponent<bike>().check();
-			player1.GetComponent<bike>().impact ();
+			if(player1!=null){
+				player1.GetComponent<bike>().check();
+				player1.GetComponent<bike>().impact ();
+			}
 		}else if(obj.gameObject.CompareTag("Wall2"))
 		{
 			Destroy(obj.gameObject);
 			Destroy(gameObject);
-			player2.GetComponent<bike>().check();
-			player2.GetComponent<bike>().impact ();
-
+			if(player2!=null){
+				player2.GetComponent<bike>().check();
+				player2.GetComponent<bike>().impact ();
+			}
 		}
 		
 	}

@@ -28,12 +28,16 @@ public class Bullet : MonoBehaviour {
 		{
 			Destroy(obj.gameObject);
 			Destroy(gameObject);
-			player1.GetComponent<bike>().check();
+			if(player1!=null){
+				player1.GetComponent<bike>().check();
+			}
 		}else if(obj.gameObject.CompareTag("Wall2"))
 		{
 			Destroy(obj.gameObject);
 			Destroy(gameObject);
-			player2.GetComponent<bike>().check();
+			if(player2!=null){
+				player2.GetComponent<bike>().check();
+			}
 		}
 		
 	}

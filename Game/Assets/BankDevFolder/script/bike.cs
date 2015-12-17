@@ -162,7 +162,15 @@ public class bike : MonoBehaviour {
 	}
 
 
-
+	public void warp(Vector3 pos,Vector3 ro,Vector3 tran,float angleDegree){
+		
+		pos.y = transform.position.y;
+		transform.Rotate(ro,angleDegree);
+		transform.position = pos;
+		transform.Translate (tran);
+		CreateLightCollider ();
+		
+	}
 
 
 }

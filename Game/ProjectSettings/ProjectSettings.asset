@@ -7,10 +7,7 @@ PlayerSettings:
   AndroidProfiler: 0
   defaultScreenOrientation: 0
   targetDevice: 2
-<<<<<<< .merge_file_a09548
-=======
   targetResolution: 0
->>>>>>> .merge_file_a10072
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
@@ -67,17 +64,11 @@ PlayerSettings:
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
-<<<<<<< .merge_file_a09548
   xboxEnablePIXSampling: 0
   n3dsDisableStereoscopicView: 0
   n3dsEnableSharedListOpt: 1
   n3dsEnableVSync: 0
   uiUse16BitDepthBuffer: 0
-=======
-  n3dsDisableStereoscopicView: 0
-  n3dsEnableSharedListOpt: 1
-  n3dsEnableVSync: 0
->>>>>>> .merge_file_a10072
   xboxOneResolution: 0
   ps3SplashScreen: {fileID: 0}
   videoMemoryForVertexBuffers: 0
@@ -285,18 +276,12 @@ PlayerSettings:
   playerPrefsSupport: 0
   ps4ReprojectionSupport: 0
   ps4UseAudio3dBackend: 0
-<<<<<<< .merge_file_a09548
   ps4SocialScreenEnabled: 0
   ps4Audio3dVirtualSpeakerCount: 14
   ps4attribCpuUsage: 0
   ps4PatchPkgPath: 
   ps4PatchLatestPkgPath: 
   ps4PatchChangeinfoPath: 
-=======
-  ps4Audio3dVirtualSpeakerCount: 14
-  ps4attribCpuUsage: 0
-  ps4SocialScreenEnabled: 0
->>>>>>> .merge_file_a10072
   ps4attribUserManagement: 0
   ps4attribMoveSupport: 0
   ps4attrib3DSupport: 0

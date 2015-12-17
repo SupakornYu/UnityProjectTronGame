@@ -9,12 +9,15 @@ public class Shoot1 : MonoBehaviour
 	float timer;
 	float intervalTime;
 	bool check;
+	public GameObject shootsound;
+
 
 	void Start(){
 		check = false;
 		intervalTime = 2.0f;
 		timer = 0.0f;
 		type = 1;
+
 	}
 	// Update is called once per frame
 	void Update ()
@@ -60,6 +63,7 @@ public class Shoot1 : MonoBehaviour
 		} else if (type <= 0 && Input.GetKey(KeyCode.W)) {
 			GameObject gunBullet = (GameObject)Instantiate(bullet,transform.position,transform.rotation);
 			gunBullet.GetComponent<Rigidbody>().velocity = transform.forward*-speed;
+			shootsound.GetComponent<shootsound>().shoot();
 		}
 	}
 

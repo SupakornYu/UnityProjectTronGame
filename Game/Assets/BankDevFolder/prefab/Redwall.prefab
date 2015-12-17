@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Wall1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &423048
 Transform:
@@ -41,7 +41,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2959ec8dc3e81f74cb271407088364ff, type: 2}
+  - {fileID: 2100000, guid: 032d84b7eca55704f9df7e7764bd753c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -96,14 +96,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2959ec8dc3e81f74cb271407088364ff, type: 2}
+      objectReference: {fileID: 2100000, guid: 032d84b7eca55704f9df7e7764bd753c, type: 2}
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Wall1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -121,6 +121,10 @@ Prefab:
       propertyPath: lifetime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: impactsound
+      value: 
+      objectReference: {fileID: 127784, guid: 13817265461778644854772b7a7051ca, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 151112}

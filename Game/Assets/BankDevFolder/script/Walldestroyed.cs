@@ -4,9 +4,10 @@ using System.Collections;
 public class Walldestroyed : MonoBehaviour {
 	public GameObject WallPaticiple;
 
+
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame

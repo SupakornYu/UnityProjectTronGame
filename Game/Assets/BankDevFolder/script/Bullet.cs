@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour {
 	GameObject player2;
 
 
+
 	void Start(){
 
 		lifeTime = 2.0f;
@@ -29,11 +30,14 @@ public class Bullet : MonoBehaviour {
 			Destroy(obj.gameObject);
 			Destroy(gameObject);
 			player1.GetComponent<bike>().check();
+			player1.GetComponent<bike>().impact ();
 		}else if(obj.gameObject.CompareTag("Wall2"))
 		{
 			Destroy(obj.gameObject);
 			Destroy(gameObject);
 			player2.GetComponent<bike>().check();
+			player2.GetComponent<bike>().impact ();
+
 		}
 		
 	}

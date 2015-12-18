@@ -47,7 +47,7 @@ Material:
         first:
           name: _OcclusionMap
         second:
-          m_Texture: {fileID: 2800000, guid: ab6a74beffdf937469f1ca1b7e9f1030, type: 3}
+          m_Texture: {fileID: 2800000, guid: 6523c699b112bbe4ca1ed77ad0d663e5, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:

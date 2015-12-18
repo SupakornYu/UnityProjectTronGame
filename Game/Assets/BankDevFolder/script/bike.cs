@@ -210,9 +210,9 @@ public class bike : MonoBehaviour {
 
 	void decreaseHealth(int amount,Collider obj){
 		if(gameObject.tag=="Player1"){
-
-			GameSetting.Player1Health -= amount;
 			Debug.Log("player1 :"+GameSetting.Player1Health);
+			GameSetting.Player1Health -= amount;
+
 			if(GameSetting.Player1Health<=0){
 				playerDie();
 			}else{
@@ -220,9 +220,9 @@ public class bike : MonoBehaviour {
 			}
 
 		}else if(gameObject.tag=="Player2"){
-
-			GameSetting.Player2Health -= amount;
+			
 			Debug.Log("player2 :"+GameSetting.Player2Health);
+			GameSetting.Player2Health -= amount;
 			if(GameSetting.Player2Health<=0){
 				playerDie();
 			}else{
@@ -242,15 +242,20 @@ public class bike : MonoBehaviour {
 	}
 
 	void playerDie(){
-		Destroy(gameObject);
+
 		if(gameObject.tag=="Player1"){
+			GetComponent<healthGauge1>().setZero();
 			GameSetting.Player1Health = 0;
 			Debug.Log ("Player1 has passed away : " + GameSetting.Player1Health);
+			Application.LoadLevel ("Player2win");
+
 		}else if(gameObject.tag=="Player2"){
+			GetComponent<healthGauge2>().setZero();
 			GameSetting.Player2Health = 0;
 			Debug.Log ("Player2 has passed away : " + GameSetting.Player2Health);
+			Application.LoadLevel ("Player1win");
 		}
-
+		Destroy(gameObject);
 		//Application.LoadLevel ("GameOverScence");
 	}
 

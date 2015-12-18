@@ -13,6 +13,8 @@ public class acc1 : MonoBehaviour {
 	float Percen;
 
 
+
+
 	// Use this for initialization
 	void Start () {
 		text_u = text_p.GetComponent<Text>();
@@ -40,7 +42,7 @@ public class acc1 : MonoBehaviour {
 			//Debug.Log("out");
 			GameObject.FindGameObjectWithTag ("Player1").GetComponent<bike> ().speed = 8.0f;
 			//Debug.Log("speed out :"+ GameObject.FindGameObjectWithTag ("Player1").GetComponent<bike> ().speed);
-			fillAmount += 0.03f * Time.deltaTime; 
+			fillAmount += GameSetting.Player1Speed * Time.deltaTime; 
 			AccBar.fillAmount = fillAmount;
 			Percen = fillAmount * 100;
 			text_u.text = fillAmount * 100 + "";

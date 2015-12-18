@@ -20,7 +20,7 @@ public class buttonNext1 : MonoBehaviour{
 
 	}
 	public void changescene2(){
-		Application.LoadLevel ("scene1");
+		Application.LoadLevel ("sceneBank");
 
 
 	}

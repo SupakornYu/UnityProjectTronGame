@@ -15,8 +15,8 @@ public class ShowSliderValue : MonoBehaviour
 		if (lbl != null) {
 			int temp = Mathf.RoundToInt (value * 10);
 			lbl.text = Mathf.RoundToInt (value * 10)+".0";
-			GameSetting.Player1Speed = temp;
-
+			GameSetting.Player1Speed = (temp/5.0f);
+			Debug.Log("p1 speed : " + GameSetting.Player1Speed);
 		}
 
 
@@ -26,6 +26,7 @@ public class ShowSliderValue : MonoBehaviour
 	public void UpdateLabelhealth1 (float value)
 	{
 		Text lbl = GetComponent<Text>();
+		GameSetting.Player1Health = 1;
 
 		if (lbl != null) {
 			lbl.text = Mathf.RoundToInt (value*3)+".0";
@@ -45,7 +46,8 @@ public class ShowSliderValue : MonoBehaviour
 
 			}
 			GameSetting.Player1Health += temp;
-
+			Debug.Log(temp);
+			Debug.Log("ggg: "+GameSetting.Player1Health);
 		}
 
 
@@ -54,11 +56,12 @@ public class ShowSliderValue : MonoBehaviour
 	{
 		Text lbl = GetComponent<Text>();
 
+
 		if (lbl != null) {
 			int temp = Mathf.RoundToInt (value * 10);
 			lbl.text = Mathf.RoundToInt (value * 10)+".0";
-			GameSetting.Player2Speed = temp;
-
+			GameSetting.Player2Speed = (temp/5.0f);
+			Debug.Log("p2 speed : " + GameSetting.Player2Speed);
 		}
 
 
@@ -68,6 +71,8 @@ public class ShowSliderValue : MonoBehaviour
 	public void UpdateLabelhealth2 (float value)
 	{
 		Text lbl = GetComponent<Text>();
+
+		GameSetting.Player2Health = 1;
 
 		if (lbl != null) {
 			lbl.text = Mathf.RoundToInt (value*3)+".0";
